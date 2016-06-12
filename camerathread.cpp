@@ -9,6 +9,7 @@ void CameraThread::run(){
     while (camera.isOpened() && startCamera){
         Mat frame;
         camera >> frame;
+        cv::flip(frame, frame, 1);
         convertImg(frame);
         sleep(0.1);
     }

@@ -20,22 +20,6 @@ void VideoFrameWidget::getImage(QPixmap image){
     ui->videoFrame->setPixmap(image);
 }
 
-void VideoFrameWidget::showImage(const cv::Mat &image){
-
-    switch(image.type()){
-    case CV_8UC1:
-        cv::cvtColor(image, cvImage, CV_GRAY2RGB);
-        break;
-    case CV_8UC3:
-        cv::cvtColor(image, cvImage, CV_BGR2RGB);
-        break;
-    }
-
-    assert(cvImage.isContinuous());
-
-    qImage = QImage(cvImage.data, cvImage.cols, cvImage.rows, cvImage.cols * 3, QImage::Format_RGB888);
-
-}
 
 void VideoFrameWidget::on_cameraButton_toggled(bool checked)
 {

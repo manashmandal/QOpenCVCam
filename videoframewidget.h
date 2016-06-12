@@ -21,7 +21,6 @@ public:
     ~VideoFrameWidget();
 
 public slots:
-    void showImage(const cv::Mat &image);
     void getImage(QPixmap image);
 
 signals:
